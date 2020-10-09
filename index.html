@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Collective Intelligence Case Studies | The GovLab</title>
+
+  <link href="/images/favicon.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://use.typekit.net/kad3hcl.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="https://unpkg.com/@directus/sdk-js@5.3.4/dist/directus-sdk.umd.min.js"></script>
+  <script src="https://kit.fontawesome.com/f713a12e61.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+  <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+
+
+  <!-- Top Navigation Menu -->
+  <div class="topnav">
+    <div class="menu-bars">
+      <div class="bar-wrap">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+    <a class="top_logo" href="index.html"><img src="images/govlab-logo-white.png" alt="The GovLab"></a>
+
+    <!-- Navigation links (hidden by default) -->
+
+    <div class='lang-select'>
+    
+    </div>
+  </div>
+  <div id="myLinks">
+    <div class="menu-items">
+      <div class="menu-sub" onclick="dismiss_menu()"><a href="#">Home</a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a href="about.html">About</a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a></a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a></a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a></a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a></a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a></a></div>
+    </div>
+  </div>
+
+
+  <div id="home-page" v-cloak>
+    <div class="row top-section topic"  :style="{ backgroundImage: 'url(' + indexData[0].featured_image.data.full_url+ ')' }">
+      <div class="top-heading">
+      <h1>{{indexData[0].title}}</h1>
+      <h3>{{indexData[0].headline}}</h3>
+      </div>
+
+      <div class="row-cust mt-5">
+        <a target="_blank" class="column-3-timeline-5" v-bind:class = "(indexData[0].ci_aspect == 'problem_solved')?'active':'none'">
+          <div class="dot-class"> <span class="dot"></span></div>
+          <p>Problem Solved</p>
+        </a>
+        <a target="_blank" class="column-3-timeline-5" v-bind:class = "(indexData[0].ci_aspect == 'how-to')?'active':'none'">
+          <div class="dot-class"> <span class="dot"></span></div>
+          <p>CI How-to</p>
+        </a>
+        <a target="_blank" class="column-3-timeline-5" v-bind:class = "(indexData[0].ci_aspect == 'task')?'active':'none'">
+          <div class="dot-class"> <span class="dot"></span></div>
+          <p>Tasks Performed</p>
+        </a>
+        <a target="_blank" class="column-3-timeline-5" v-bind:class = "(indexData[0].ci_aspect == 'collaborative')?'active':'none'">
+          <div class="dot-class"> <span class="dot"></span></div>
+          <p>Kind of Collaboration</p>
+        </a>
+        <a target="_blank" class="column-3-timeline-5" v-bind:class = "(indexData[0].ci_aspect == 'level')?'active':'none'">
+          <div class="dot-class"> <span class="dot"></span></div>
+          <p>Level of Institutionalization</p>
+        </a>
+        </div>
+        <a  :href="indexData[0].link_to_platform" target="_blank" class="project-link">
+          <i class="fa fa-link" aria-hidden="true"></i>&nbsp<p>Project website</p>
+        </a>
+    </div>
+
+  <div class="">
+
+    <div class="case-text" v-html="newData">
+      {{newData}}
+    </div>
+    <div class="divider">
+      <h1>End notes</h1>
+    </div>
+    <div id="endnotes" class="case-end-notes" v-html="indexData[0].end_notes">
+    </div>
+  </div>
+
+</div>
+  <footer>
+    <div class="footer-row">
+
+      <div class="footer-col">
+        <h4>CONTACT US</h4>
+        <a><i class="e-social-media-item fa fa-envelope"></i>&nbsp info@thegovlab.org</a>
+      </div>
+      <div class="footer-col">
+        <h4>FOLLOW US</h4>
+        <a href="https://twitter.com/TheGovLab" target="_blank"><i class="e-social-media-item fa fa-twitter"
+            aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/thegovlab/" target="_blank"><i class="e-social-media-item fa fa-facebook"
+            aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/company/3288504" target="_blank"><i class="e-social-media-item fa fa-linkedin"
+            aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="footer-row privacy-statement">
+      <p>The GovLab is committed to respecting your privacy and abides by all the practices and principles outlined by
+        New York University in its Digital Privacy Statement. For more information, please review the full statement <a
+          href="https://www.nyu.edu/footer/copyright-and-fair-use/digital-privacy-statement.html"
+          target="_blank">here.</a></p>
+    </div>
+  </footer>
+  <div class="copyright">
+    <div class="row">
+      <div class="column">
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+          <img class="copyright_cc-badge" alt="Creative Commons License"
+            src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+        <p>&nbspThis work is licensed under a</p>&nbsp<a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+          International License.</a>.
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+</script>
+<script>
+  /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+  function dismiss_menu() {
+    var x = document.getElementById("myLinks");
+   x.style.display = "none";
+  }
+</script>
+
+<script src='https://unpkg.com/vue@2.0.3/dist/vue.js'></script>
+<script src="https://unpkg.com/vue-meta/dist/vue-meta.min.js"></script>
+<script src="js/ci_case.js"></script>
+
+
+</html>
