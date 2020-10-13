@@ -110,7 +110,7 @@
       
     </div>
     <div class="column-summary right">
-      <p><span class="summary-item">Owner:</span>&nbsp{{indexData[0].owner}}</p>
+      <p><span class="summary-item">Owner:</span><span v-html="indexData[0].owner"></span></p>
       <p><span class="summary-item">Years in operation:</span>&nbsp{{indexData[0].years_in_operation}}</p>
       <p><span class="summary-item">Platforms:</span>&nbsp{{indexData[0].platform}}</p>
       <p><span class="summary-item">Contact Information:</span>&nbsp{{indexData[0].primary_contact_name}},&nbsp{{indexData[0].primary_contact_title}}</p>
@@ -120,8 +120,8 @@
 </div>
   <div class="">
 
-    <div class="case-text" v-html="newData">
-      {{newData}}
+    <div class="case-text">
+      {{indexData[0]}}
     </div>
     <div class="divider">
       <h1>End notes</h1>

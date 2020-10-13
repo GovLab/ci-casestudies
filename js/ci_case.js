@@ -55,7 +55,7 @@ new Vue({
   'case_studies',
   {
     filter: {
-      title: self.memberslug
+      slug: self.memberslug
     },
     fields: ['*.*']
   }

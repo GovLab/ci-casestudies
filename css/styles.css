@@ -216,8 +216,6 @@ color: #ffffff;
 }
 .column-summary p{
   font-weight: 600;
-
-
 }
 .summary-item{
   text-transform: uppercase;
@@ -266,21 +264,21 @@ padding: 0 10rem;
 .case-end-notes li{
   line-height: 2;
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 200 !important;
 }
 .case-text p{
-  line-height: 2;
-  font-size: 1.2rem;
-  font-weight: 200;
+  line-height: 2 !important;
+  font-size: 1.2rem !important;
+  font-weight: 200 !important;
 }
 .case-text sup{
   font-size: 0.8rem;
   font-weight: 500;
 }
 .case-text a{
-  text-decoration-style: dotted;
-  color: var(--link-color);
-  font-weight: 400;
+  text-decoration-style: dotted !important;
+  color: var(--link-color) !important;
+  font-weight: 400 !important;
 }
 .case-text strong{
   color: #3d3d3d;
@@ -298,7 +296,13 @@ padding: 0 10rem;
   margin-top:5px;
   font-size: 1rem;
 }
-
+.case-text img{
+  height: 300px;
+  width:auto;
+}
+.case-text span{
+  font-weight: 200 !important;
+}
 .project-link{
   display:flex;
   flex-direction: row;
