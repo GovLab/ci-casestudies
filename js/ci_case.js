@@ -61,11 +61,18 @@ new Vue({
   }
 ).then(data => {
   self.indexData = data.data;
+  console.log(this.indexData);
   self.newData =  self.indexData[0].case_study_body.replaceAll("<sup>","<sup><a href='#endnotes'>");
   self.newData =  self.newData.replaceAll("</sup>","</sup></a>");
   console.log(newData);
 })
 .catch(error => console.error(error));
+    },
+    hover(id){
+      console.log(id);
+      document.getElementById(id).classList.toggle("show");
+      
+      
     }
 }
 });

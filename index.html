@@ -27,6 +27,8 @@
 
 
   <!-- Top Navigation Menu -->
+
+
   <div class="topnav">
     <div class="menu-bars">
       <div class="bar-wrap">
@@ -54,10 +56,9 @@
       <div class="menu-sub" onclick="dismiss_menu()"><a></a></div>
     </div>
   </div>
-
-
   <div id="home-page" v-cloak>
     <div class="row top-section topic"  :style="{ backgroundImage: 'url(' + indexData[0].featured_image.data.full_url+ ')' }">
+      
       <div class="top-heading">
       <h1>{{indexData[0].title}}</h1>
       <h3>{{indexData[0].headline}}</h3>
@@ -66,30 +67,57 @@
       <div class="row-cust mt-5">
         <a target="_blank" class="column-3-timeline-5" v-bind:class = "(indexData[0].ci_aspect == 'problem_solved')?'active':'none'">
           <div class="dot-class"> <span class="dot"></span></div>
-          <p>Problem Solved</p>
+          <p class="tip" @click="hover('tooltip-1')" >Problem Solved &nbsp<i class="e-social-media-item fa fa-question-circle"
+            aria-hidden="true"></i></p>
+            <p id="tooltip-1">Cases in this category focus on how CI has been used to accelerate problem solving in a specific domain.</p>
         </a>
         <a target="_blank" class="column-3-timeline-5" v-bind:class = "(indexData[0].ci_aspect == 'how-to')?'active':'none'">
           <div class="dot-class"> <span class="dot"></span></div>
-          <p>CI How-to</p>
+          <p class="tip" @click="hover('tooltip-2')">CI How-to &nbsp<i class="e-social-media-item fa fa-question-circle"
+            aria-hidden="true"></i></p>
+          <p id="tooltip-2"> Cases in this category highlight one specific design decision.</p>
         </a>
         <a target="_blank" class="column-3-timeline-5" v-bind:class = "(indexData[0].ci_aspect == 'task')?'active':'none'">
           <div class="dot-class"> <span class="dot"></span></div>
-          <p>Tasks Performed</p>
+          <p class="tip" @click="hover('tooltip-3')">Task Performed &nbsp<i class="e-social-media-item fa fa-question-circle"
+            aria-hidden="true"></i></p>
+            <p id="tooltip-3">Cases in this category focus on a specific type of task 'the crowd' performs.</p>
         </a>
         <a target="_blank" class="column-3-timeline-5" v-bind:class = "(indexData[0].ci_aspect == 'collaborative')?'active':'none'">
           <div class="dot-class"> <span class="dot"></span></div>
-          <p>Kind of Collaboration</p>
+          <p class="tip" @click="hover('tooltip-4')">Kind of Collaboration &nbsp<i class="e-social-media-item fa fa-question-circle"
+            aria-hidden="true"></i></p>
+            <p id="tooltip-4">Cases in this category illustrate a specific kind of group work -- crowdsourcing, collaboration or co-design.</p>
         </a>
         <a target="_blank" class="column-3-timeline-5" v-bind:class = "(indexData[0].ci_aspect == 'level')?'active':'none'">
           <div class="dot-class"> <span class="dot"></span></div>
-          <p>Level of Institutionalization</p>
+          <p class="tip" @click="hover('tooltip-5')">Level of Institutionalization &nbsp<i class="e-social-media-item fa fa-question-circle"
+            aria-hidden="true"></i></p>
+            <p id="tooltip-5">Cases in this category illustrate of a specific level or type of institutionalization -- low to high and 'viral' (achieved success at scale).</p>
         </a>
         </div>
         <a  :href="indexData[0].link_to_platform" target="_blank" class="project-link">
           <i class="fa fa-link" aria-hidden="true"></i>&nbsp<p>Project website</p>
         </a>
     </div>
-
+<div class="summary">
+  <div class="row-summary">
+    <div class="column-summary">
+      <p><span class="summary-item">Name:</span>&nbsp{{indexData[0].title}}</p>
+      <p><span class="summary-item">Topic:</span>&nbsp{{indexData[0].topic}}</p>
+      <p><span class="summary-item">Location:</span>&nbsp{{indexData[0].location}}</p>
+      <p><span class="summary-item">Implementation Level:</span>&nbsp{{indexData[0].implementation_level}}</p>
+      
+    </div>
+    <div class="column-summary right">
+      <p><span class="summary-item">Owner:</span>&nbsp{{indexData[0].owner}}</p>
+      <p><span class="summary-item">Years in operation:</span>&nbsp{{indexData[0].years_in_operation}}</p>
+      <p><span class="summary-item">Platforms:</span>&nbsp{{indexData[0].platform}}</p>
+      <p><span class="summary-item">Contact Information:</span>&nbsp{{indexData[0].primary_contact_name}},&nbsp{{indexData[0].primary_contact_title}}</p>
+      <p v-if="indexData[0].other_contact_info">{{indexData[0].other_contact_info}}</p>
+    </div>
+  </div>
+</div>
   <div class="">
 
     <div class="case-text" v-html="newData">
@@ -139,6 +167,7 @@
       </div>
     </div>
   </div>
+ 
 </body>
 
 <script>
