@@ -196,7 +196,13 @@ color: #ffffff;
 }
 .summary{
   padding: 2rem 15rem 0 15rem;
-  text-align: left;
+  text-align: center;
+}
+#update-date{
+color: #ffffff;
+font-weight: 400;
+background-color: var(--main-color);
+padding: 10px 20px;
 }
 .row-summary{
   display:flex;

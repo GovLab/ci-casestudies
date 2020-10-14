@@ -93,7 +93,7 @@
           <div class="dot-class"> <span class="dot"></span></div>
           <p class="tip" @click="hover('tooltip-5')">Level of Institutionalization &nbsp<i class="e-social-media-item fa fa-question-circle"
             aria-hidden="true"></i></p>
-            <p id="tooltip-5">Cases in this category illustrate of a specific level or type of institutionalization -- low to high and 'viral' (achieved success at scale).</p>
+            <p id="tooltip-5">Cases in this category illustrate a specific level or type of institutionalization -- low to high and 'viral' (achieved success at scale).</p>
         </a>
         </div>
         <a  :href="indexData[0].link_to_platform" target="_blank" class="project-link">
@@ -101,6 +101,7 @@
         </a>
     </div>
 <div class="summary">
+  
   <div class="row-summary">
     <div class="column-summary">
       <p><span class="summary-item">Name:</span>&nbsp{{indexData[0].title}}</p>
@@ -115,6 +116,7 @@
       <p><span class="summary-item">Platforms:</span>&nbsp{{indexData[0].platform}}</p>
       <p><span class="summary-item">Contact Information:</span>&nbsp{{indexData[0].primary_contact_name}},&nbsp{{indexData[0].primary_contact_title}}</p>
       <p v-if="indexData[0].other_contact_info">{{indexData[0].other_contact_info}}</p>
+      <p><span id="update-date">CASE STUDY LAST UPDATED: {{indexData[0].updated_date}}</span> </p>
     </div>
   </div>
 </div>
