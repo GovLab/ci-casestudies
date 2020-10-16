@@ -36,7 +36,7 @@
 </header>
 
 <body>
-    <div id="home-page">
+    <div id="home-page" v-cloak>
         <div class="hero testing hero-banner">
             <div class="text">
                 <h1>Collective Intelligence</h1>
@@ -84,11 +84,11 @@
         </div> -->
       
         <div class="project-list">
-            <div class="no-project" v-if="!filterData.length">
+            <!-- <div class="no-project" v-if="!filterData.length">
                 Sorry no projects found for the filter criteria you selected!
-            </div>
+            </div> -->
             <div v-for="project in filterData" class="project-item">
-                <a :href="'https://govlab.github.io/ci-casestudies/?=' + project.slug" target="_blank" class="project-card">
+                <a :href="'https://govlab.github.io/ci-casestudies/case/index.html?=' + project.slug" target="_blank" class="project-card">
                     <div class="project-img">
                         <img v-if="project.featured_image" class="project-img" :src="project.featured_image.data.full_url">
                     </div>
@@ -125,20 +125,9 @@
             </div>
         </div>
 
-
-        <div class="stay-connected">
-            <h1>Stay Up to Date</h1>
-            <p>Information on each of these project streams, as well information about upcoming coronavirus-related
-                events, can be found in our weekly newsletter. Individuals interested in engaging with one or more of
-                these strands can contact us at <a style="color:#ffffff;font-weight:400"
-                    href="mailto:stefaan@thegovlab.org">stefaan@thegovlab.org.</a>
-                <br>If these projects interest you, you might also be interested in The GovLab’s <a
-                    style="color:#ffffff; font-weight:400" href="https://covidcourse.thegovlab.org">Covid Course</a>, a
-                collective intelligence course which aims to improve responses to COVID-19.</p>
-        </div>
         <footer>
             <div class="logo-side">
-                <img src="img/govlab-logo-white.png">
+                <img src="case/images/govlab-temp-logo_white.png">
                 <p>The Governance Lab's mission is to improve people's lives by changing the way we govern. Our goal at
                     The GovLab is to strengthen the ability of institutions — including but not limited to governments —
                     and people to work more openly, collaboratively, effectively, and legitimately to make better

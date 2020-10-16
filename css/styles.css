@@ -814,7 +814,8 @@ footer{
   line-height: 1.6;
 }
 .logo-side img{
-  height: 60px;
+  height: 30px;
+  padding: 1rem 0;
 }
 .address{
   width:50%;
