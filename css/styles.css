@@ -168,12 +168,15 @@ padding: 0 20px;
 }
 
 .btn{
-  padding:0.5em 4em;
-  background-color: var(--yellow);
+  padding:1em 4em;
+  margin: 0 1em;
+  background-color: var(--dark-grey);
   text-decoration: none;
   color: var(--white);
-  font-weight: 200;
+  font-weight: 400;
+  font-size: 1.1rem;
   text-transform: uppercase;
+  border: 2px solid var(--blue);
 }
 .btn.project{
   padding:0.5em 4em;
@@ -182,8 +185,10 @@ padding: 0 20px;
   font-size:1rem;
 }
 a.btn:hover{
-  background-color: var(--yellow-dark);
+  background-color: var(--dark-grey);
+  background-color: var(--blue);
   transition: all .6s ease;
+  border: 2px solid var(--white);
 }
 .main-button.connect{
   margin-top:0;
@@ -1037,7 +1042,9 @@ header.project-header{
     background-size: cover;
     background-repeat: no-repeat;
   }
-  
+  .btn{
+    margin: 1em 0em;
+  }
   .col-80{
     padding: 1rem;
     width: 100%;
@@ -1058,7 +1065,7 @@ header.project-header{
   }
   .hero.testing h1{
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 100;
   }
   .cta-text.testing{
 
@@ -1080,6 +1087,7 @@ header.project-header{
   }
   .text{
     width:100%;
+    align-items: flex-start;
   }
   .description{
     margin-top:20px;
@@ -1105,7 +1113,7 @@ header.project-header{
   }
   .main-button{
     flex-direction: column;
-    margin-top: 0;
+    margin-top: -25px;
   }
   .main-button.top{
     margin-top:-25px;
