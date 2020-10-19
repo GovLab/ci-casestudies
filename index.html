@@ -88,7 +88,7 @@
                 Sorry no projects found for the filter criteria you selected!
             </div> -->
             <div v-for="project in filterData" class="project-item">
-                <a :href="'https://govlab.github.io/ci-casestudies/case/index.html?=' + project.slug" target="_blank" class="project-card">
+                <a :href="'https://govlab.github.io/ci-casestudies/case/' + project.slug" target="_blank" class="project-card">
                     <div class="project-img">
                         <img v-if="project.featured_image" class="project-img" :src="project.featured_image.data.full_url">
                     </div>
