@@ -37,7 +37,7 @@ new Vue({
   },
 
   created: function created() {
-    this.memberslug=window.location.search.split('?:')[1];
+    this.memberslug=window.location.search.split('?')[1];
     console.log(this.memberslug);
     this.fetchIndex();
   },
