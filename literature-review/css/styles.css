@@ -403,11 +403,13 @@ text-decoration: none;
  .top-heading{
   padding: 0rem 0;
 }
-.top-heading h3{
+.top-heading h4{
   font-size: 1.3rem;
   color: #ffffff;
   font-weight: 400;
+  margin:0;
 }
+
  .row .column.image-col-training{
   background-image: url(../images/collab-2.jpg);
   height: 500px;
