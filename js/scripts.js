@@ -30,6 +30,7 @@ new Vue({
     return {
       indexData: [],
       filterData: [],
+      reportData: [],
       // js_scope: [
       //   { code: '', name: 'All' },
       //   { code: '0', name: 'Local' },
@@ -83,7 +84,7 @@ new Vue({
   created: function created() {
     this.memberslug = window.location.pathname.split('/');
     this.fetchIndex();
-
+    this.fetchReport();
   },
   methods: {
 
@@ -107,6 +108,26 @@ new Vue({
         self.filterData = self.indexData;
       })
         .catch(error => console.error(error));
+    },
+    fetchReport() {
+     
+      self = this;
+      const client = new DirectusSDK({
+        url: "https://directus.thegovlab.com/",
+        project: "ci_cases",
+        storage: window.localStorage
+      });
+
+      client.getItems(
+  'report_page',
+  {
+    fields: ['*.*']
+  }
+).then(data => {
+  
+  self.reportData = data.data;
+})
+.catch(error => console.error(error));
     },
     dateShow(date) {
       return moment(date).format("MMMM YYYY");

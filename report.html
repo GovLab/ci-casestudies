@@ -54,91 +54,13 @@
                 <h4>Case Studies</h4>
             </div>
         </div>
-
         <div class="main-button">
-            <a href="report.html" class="btn" target="_blank">View THE REPORT</a>
-            <a href="https://www.thegovlab.org/collective-intelligence.html" class="btn" target="_blank">About the project</a>
-            <a href="literature-review/index.html" class="btn" target="_blank">Read the Literature Review</a>
+            <a :href="reportData[0].report.data.full_url" class="btn" target="_blank">Download THE REPORT</a>
+            <a :href="reportData[0].guide.data.full_url" class="btn" target="_blank">Download the guide</a>
           </div>
-<!-- 
-        <div class="filters">
-            <div class="form-control">
-                <select @change="changeFilter($event)">
-                    <option class="material-icons" value="" selected disabled>Scope</option>
-                    <option v-for="scope in js_scope" :value="scope.code" :key="scope.code">{{ scope.name }}
-                    </option>
-                </select>
-            </div>
-            <p>&nbsp&nbsp&nbsp</p>
-            <div class="form-control">
-                <select @change="changeFilter($event)">
-                    <option value="" selected disabled>Region</option>
-                    <option v-for="region in js_regions" :value="region.code" :key="region.code">{{ region.name }}
-                    </option>
-                </select>
+        <div class="report-section">
+            <div v-html="reportData[0].description">
 
-            </div>
-            <p>&nbsp&nbsp&nbsp</p>
-            <div class="form-control">
-                <select @change="changeFilter($event)">
-                    <option value="" selected disabled>Topic</option>
-                    <option v-for="topic in js_topic" :value="topic.code" :key="topic.code">{{ topic.name }}</option>
-                </select>
-
-            </div>
-            <p>&nbsp&nbsp&nbsp</p>
-            <div class="form-control">
-                <select @change="changeFilter($event)">
-                    <option value="" selected disabled>Pandemic Phase</option>
-                    <option v-for="phase in js_phase" :value="phase.code" :key="phase.code">{{ phase.name }}</option>
-                </select>
-            </div>
-        </div> -->
-        <!-- <div class="search">
-            <input name="search-bar" type="text" id="search-text" />
-            <input name="buttonExecute" @click="searchItems()" type="button" value="Search" />
-            <input name="buttonExecute" @click="ResetItems()" type="button" value="Reset" />
-        </div> -->
-      
-        <div class="project-list">
-            <!-- <div class="no-project" v-if="!filterData.length">
-                Sorry no projects found for the filter criteria you selected!
-            </div> -->
-            <div v-for="project in filterData" class="project-item">
-                <a :href="'https://govlab.github.io/ci-casestudies/case/' + project.slug" target="_blank" class="project-card">
-                    <div class="project-img">
-                        <img v-if="project.featured_image" class="project-img" :src="project.featured_image.data.full_url">
-                    </div>
-
-                    <div class="project-text small">
-                        <p id="title">{{project.title}}</p>
-                        <p>{{project.headline}}</p>
-                        <div class="tag-section">
-                            <div class="tag-row">
-                                <span id="location-icon" class="material-icons"> autorenew</span>
-                                <div class="tag-col" v-for="stage in project.stage" v-if="stage">
-                                    <p v-if="stage == 'problem'"><span class="tag tag-1">Problem Identification</span></p>
-                                    <p v-if="stage == 'solution'"><span class="tag tag-2">Solution Development</span></p>
-                                    <p v-if="stage == 'implementation'"><span class="tag tag-3">Implementation</span></p>
-                                    <p v-if="stage == 'evaluation'"><span class="tag tag-4">Evaluation</span></p>
-                                   
-                                </div>
-                            </div>
-                            <div class="tag-row">
-                                <span id="location-icon" class="material-icons"> location_on</span>
-                                <div class="tag-col"  v-if="project.location">
-                                    <p><span class="tag region-tag">{{project.location}}</span></p>
-                                </div>
-                            </div>
-                            <div class="tag-row owner">
-                                <p>Owner: <span v-html="project.owner"></span></p>
-                              
-                            </div>
-
-                        </div>
-
-                    </div>
-                </a>
             </div>
         </div>
 

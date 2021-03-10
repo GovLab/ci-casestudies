@@ -29,6 +29,7 @@ new Vue({
  
     return {
       filterData: [],
+      reportData: [],
       apiURL: 'https://directus.thegovlab.com/data4covid',
     }
   },
@@ -38,7 +39,7 @@ new Vue({
     this.memberslug=window.location.search.split('?')[1];
     console.log(this.memberslug);
     this.fetchIndex();
-
+    this.fetchReport();
   },
   methods: {
 
@@ -63,6 +64,26 @@ new Vue({
   
   self.indexData = data.data;
   self.filterData = self.indexData;
+})
+.catch(error => console.error(error));
+    },
+    fetchReport() {
+     
+      self = this;
+      const client = new DirectusSDK({
+        url: "https://directus.thegovlab.com/",
+        project: "data4covid",
+        storage: window.localStorage
+      });
+
+      client.getItems(
+  'report_page',
+  {
+    fields: ['*.*']
+  }
+).then(data => {
+  
+  self.reportData = data.data;
 })
 .catch(error => console.error(error));
     },
