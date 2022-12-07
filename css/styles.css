@@ -752,9 +752,10 @@ margin: 0.25rem 0;
 }
 .tag{
   color: #ffffff;
-  padding: 3px 2px;
+  padding: 3px 6px;
   font-weight: 500;
   border-radius: 0px;
+  font-size:0.9rem;
 }
 .tag-section{
   padding: 0.5rem 0;
@@ -779,6 +780,9 @@ margin: 0.25rem 0;
 }
 .tag-4{
   background-color:var(--purple);
+}
+.tag-5{
+  background-color: #523080;
 }
 .email-tag{
   background-color:var(--purple);

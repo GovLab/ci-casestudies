@@ -104,13 +104,16 @@
             <!-- <div class="no-project" v-if="!filterData.length">
                 Sorry no projects found for the filter criteria you selected!
             </div> -->
-            <div v-for="project in filterData" class="project-item">
+            <div v-for="project in filterData.slice().reverse()" class="project-item">
                 <a :href="'https://govlab.github.io/ci-casestudies/case/' + project.slug" target="_blank" class="project-card">
                     <div class="project-img">
                         <img v-if="project.featured_image" class="project-img" :src="project.featured_image.data.full_url">
                     </div>
 
                     <div class="project-text small">
+                         <div  v-if="project.youth_engagement_case" class="tag-col">
+                            <p><span class="tag tag-5">Youth Democracy</span></p>
+                        </div>
                         <p id="title">{{project.title}}</p>
                         <p>{{project.headline}}</p>
                         <div class="tag-section">
