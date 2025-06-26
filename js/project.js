@@ -30,7 +30,7 @@ new Vue({
     return {
       filterData: [],
       reportData: [],
-      apiURL: 'https://directus.thegovlab.com/data4covid',
+      apiURL: 'https://burnes-center.directus.app/data4covid',
     }
   },
 
@@ -53,7 +53,7 @@ new Vue({
      
       self = this;
       const client = new DirectusSDK({
-        url: "https://directus.thegovlab.com/",
+        url: "https://burnes-center.directus.app/",
         project: "data4covid",
         storage: window.localStorage
       });
@@ -77,7 +77,7 @@ new Vue({
      
       self = this;
       const client = new DirectusSDK({
-        url: "https://directus.thegovlab.com/",
+        url: "https://burnes-center.directus.app/",
         project: "data4covid",
         storage: window.localStorage
       });

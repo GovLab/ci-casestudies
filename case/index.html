@@ -73,7 +73,8 @@
     </div>
   </div>
   <div id="home-page" v-cloak>
-    <div class="row top-section topic"  :style="{ backgroundImage: 'url(' + indexData[0].featured_image.data.full_url+ ')' }">
+
+    <div class="row top-section topic"  :style="{ backgroundImage: 'url(' + 'https://burnes-center.directus.app/assets/' + indexData[0].featured_image.id+ ')' }">
       
       <div class="top-heading">
       <h1>{{indexData[0].title}}</h1>

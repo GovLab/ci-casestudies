@@ -107,7 +107,7 @@
             <div v-for="project in filterData.slice().reverse()" class="project-item">
                 <a :href="'https://govlab.github.io/ci-casestudies/case/' + project.slug" target="_blank" class="project-card">
                     <div class="project-img">
-                        <img v-if="project.featured_image" class="project-img" :src="project.featured_image.data.full_url">
+                        <img v-if="project.featured_image" class="project-img" :src="'https://burnes-center.directus.app/assets/' + project.featured_image.id">
                     </div>
 
                     <div class="project-text small">
@@ -119,7 +119,11 @@
                         <div class="tag-section">
                             <div class="tag-row">
                                 <span id="location-icon" class="material-icons"> autorenew</span>
-                                <div class="tag-col" v-for="stage in project.stage" v-if="stage">
+
+                                <div 
+                                    class="tag-col" 
+                                    v-for="stage in (project.stage ? (project.stage.includes(',') ? project.stage.split(',').filter(s => s) : [project.stage]) : [])" 
+                                    v-if="stage">
                                     <p v-if="stage == 'problem'"><span class="tag tag-1">Problem Identification</span></p>
                                     <p v-if="stage == 'solution'"><span class="tag tag-2">Solution Development</span></p>
                                     <p v-if="stage == 'implementation'"><span class="tag tag-3">Implementation</span></p>

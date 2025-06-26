@@ -77,7 +77,7 @@ new Vue({
 
       // ],
       selectedProjectType: null,
-      apiURL: 'https://directus.thegovlab.com/ci_cases',
+      apiURL: 'https://burnes-center.directus.app/ci_cases',
     }
   },
 
@@ -89,45 +89,37 @@ new Vue({
   methods: {
 
     fetchIndex() {
-
       self = this;
-      const client = new DirectusSDK({
-        url: "https://directus.thegovlab.com/",
-        project: "ci_cases",
-        storage: window.localStorage
-      });
- 
-      client.getItems(
-        'case_studies',
-        {
-          fields: ['*.*']
-        }
-      ).then(data => {
-
-        self.indexData = data.data;
-        self.filterData = self.indexData;
-      })
-        .catch(error => console.error(error));
+      fetch('https://burnes-center.directus.app/items/ci_case_studies?fields[0]=*.*')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          self.indexData = data.data;
+          self.filterData = self.indexData;
+        })
+        .catch(error => {
+          console.error(error);
+        });
     },
     fetchReport() {
-     
       self = this;
-      const client = new DirectusSDK({
-        url: "https://directus.thegovlab.com/",
-        project: "ci_cases",
-        storage: window.localStorage
-      });
-
-      client.getItems(
-  'report_page',
-  {
-    fields: ['*.*']
-  }
-).then(data => {
-  
-  self.reportData = data.data;
-})
-.catch(error => console.error(error));
+      fetch('https://burnes-center.directus.app/items/ci_report_page?fields[0]=*.*')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          self.reportData = data.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
     },
     dateShow(date) {
       return moment(date).format("MMMM YYYY");

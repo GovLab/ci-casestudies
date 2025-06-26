@@ -31,7 +31,7 @@ new Vue({
     return {
       indexData: [],
       newData: [],
-      apiURL: 'https://directus.thegovlab.com/ci_cases',
+      apiURL: 'https://burnes-center.directus.app/ci_cases',
 
     }
   },
@@ -42,34 +42,32 @@ new Vue({
     this.memberslug= this.memberslug.split('?')[0];
     this.memberslug= this.memberslug.split('#')[0];
     console.log(this.memberslug);
+    this.memberslug = "vtaiwan";
     this.fetchIndex();
   },
   methods: {
 
     fetchIndex() {
-      self = this;
-      const client = new DirectusSDK({
-        url: "https://directus.thegovlab.com/",
-        project: "ci_cases",
-        storage: window.localStorage
-      });
-
-      client.getItems(
-  'case_studies',
-  {
-    filter: {
-      slug: self.memberslug
-    },
-    fields: ['*.*']
-  }
-).then(data => {
-  self.indexData = data.data;
-  console.log(this.indexData);
-  self.newData =  self.indexData[0].case_study_body.replaceAll("<sup>","<sup><a href='#endnotes'>");
-  self.newData =  self.newData.replaceAll("</sup>","</sup></a>");
-  console.log(newData);
-})
-.catch(error => console.error(error));
+      const self = this;
+      // Build the URL dynamically based on the current slug
+      const url = `https://burnes-center.directus.app/items/ci_case_studies?filter[slug]=${encodeURIComponent(self.memberslug)}&fields[0]=*.*`;
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })  
+        .then(data => {
+          self.indexData = data.data;
+          console.log(self.indexData);
+          if (self.indexData && self.indexData.length > 0 && self.indexData[0].case_study_body) {
+            self.newData = self.indexData[0].case_study_body.replaceAll("<sup>", "<sup><a href='#endnotes'>");
+            self.newData = self.newData.replaceAll("</sup>", "</sup></a>");
+            console.log(self.newData);
+          }
+        })
+        .catch(error => console.error(error));
     },
     hover(id){
       console.log(id);
