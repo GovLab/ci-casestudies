@@ -42,7 +42,7 @@ new Vue({
     this.memberslug= this.memberslug.split('?')[0];
     this.memberslug= this.memberslug.split('#')[0];
     console.log(this.memberslug);
-    this.memberslug = "vtaiwan";
+    // this.memberslug = "vtaiwan";
     this.fetchIndex();
   },
   methods: {
