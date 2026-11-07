@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-40012093-30"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-40012093-30');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="More and more institutions have come to recognize that in the 21st century their in-house capacity and knowledge are too limited when compared to the speed, scale and complexity of many public problems. Instead, they look to networks of people inside and outside of government to make decisions and take action more effectively and, because those decisions involve the community, more legitimately. We studied examples from around the world in order to identify what is involved in using and institutionalising this “collective intelligence” successfully." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Collective Intelligence Case Studies" />
+    <meta property="og:description" content="More and more institutions have come to recognize that in the 21st century their in-house capacity and knowledge are too limited when compared to the speed, scale and complexity of many public problems. Instead, they look to networks of people inside and outside of government to make decisions and take action more effectively and, because those decisions involve the community, more legitimately. We studied examples from around the world in order to identify what is involved in using and institutionalising this “collective intelligence” successfully." />
+    <meta property="og:image" content="case/images/ss.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thegovlab">
+    <meta name="twitter:title" content="Collective Intelligence Case Studies">
+<meta name="twitter:description" content="More and more institutions have come to recognize that in the 21st century their in-house capacity and knowledge are too limited when compared to the speed, scale and complexity of many public problems. Instead, they look to networks of people inside and outside of government to make decisions and take action more effectively and, because those decisions involve the community, more legitimately. We studied examples from around the world in order to identify what is involved in using and institutionalising this “collective intelligence” successfully.">
+<meta name="twitter:image" content="case/images/ss.png" />
+
+
+    <title>Collective Intelligence Case Studies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/kwv5eho.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@directus/sdk-js@5.3.4/dist/directus-sdk.umd.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<header class="gl-header">
+
+    <a class="govlab-logo" href="index.html">
+        <img id="gl-logo" src="case/images/govlab-temp-logo_white.png" alt="The GovLab">
+    </a>
+    <a class="govlab-logo" href="index.html">
+        <img src="case/images/nesta.png" alt="The GovLab">
+    </a>
+</header>
+
+<body>
+    <div id="home-page" v-cloak>
+        <div class="hero testing hero-banner">
+            <div class="text">
+                <h1>Collective Intelligence</h1>
+                <h4>Case Studies</h4>
+            </div>
+        </div>
+
+        <div class="main-button">
+            <a href="report.html" class="btn" target="_blank">View THE REPORT</a>
+            <a href="https://www.thegovlab.org/collective-intelligence.html" class="btn" target="_blank">About the project</a>
+            <a href="literature-review/index.html" class="btn" target="_blank">Read the Literature Review</a>
+          </div>
+<!-- 
+        <div class="filters">
+            <div class="form-control">
+                <select @change="changeFilter($event)">
+                    <option class="material-icons" value="" selected disabled>Scope</option>
+                    <option v-for="scope in js_scope" :value="scope.code" :key="scope.code">{{ scope.name }}
+                    </option>
+                </select>
+            </div>
+            <p>&nbsp&nbsp&nbsp</p>
+            <div class="form-control">
+                <select @change="changeFilter($event)">
+                    <option value="" selected disabled>Region</option>
+                    <option v-for="region in js_regions" :value="region.code" :key="region.code">{{ region.name }}
+                    </option>
+                </select>
+
+            </div>
+            <p>&nbsp&nbsp&nbsp</p>
+            <div class="form-control">
+                <select @change="changeFilter($event)">
+                    <option value="" selected disabled>Topic</option>
+                    <option v-for="topic in js_topic" :value="topic.code" :key="topic.code">{{ topic.name }}</option>
+                </select>
+
+            </div>
+            <p>&nbsp&nbsp&nbsp</p>
+            <div class="form-control">
+                <select @change="changeFilter($event)">
+                    <option value="" selected disabled>Pandemic Phase</option>
+                    <option v-for="phase in js_phase" :value="phase.code" :key="phase.code">{{ phase.name }}</option>
+                </select>
+            </div>
+        </div> -->
+        <!-- <div class="search">
+            <input name="search-bar" type="text" id="search-text" />
+            <input name="buttonExecute" @click="searchItems()" type="button" value="Search" />
+            <input name="buttonExecute" @click="ResetItems()" type="button" value="Reset" />
+        </div> -->
+      
+        <div class="project-list">
+            <!-- <div class="no-project" v-if="!filterData.length">
+                Sorry no projects found for the filter criteria you selected!
+            </div> -->
+            <div v-for="project in filterData.slice().reverse()" class="project-item">
+                <a :href="'/case/' + project.slug" target="_blank" class="project-card">
+                    <div class="project-img">
+                        <img v-if="project.featured_image" class="project-img" :src="'https://burnes-center.directus.app/assets/' + project.featured_image.id">
+                    </div>
+
+                    <div class="project-text small">
+                         <div  v-if="project.youth_engagement_case" class="tag-col">
+                            <p><span class="tag tag-5">Youth Democracy</span></p>
+                        </div>
+                        <p id="title">{{project.title}}</p>
+                        <p>{{project.headline}}</p>
+                        <div class="tag-section">
+                            <div class="tag-row">
+                                <span id="location-icon" class="material-icons"> autorenew</span>
+
+                                <div 
+                                    class="tag-col" 
+                                    v-for="stage in (project.stage ? (project.stage.includes(',') ? project.stage.split(',').filter(s => s) : [project.stage]) : [])" 
+                                    v-if="stage">
+                                    <p v-if="stage == 'problem'"><span class="tag tag-1">Problem Identification</span></p>
+                                    <p v-if="stage == 'solution'"><span class="tag tag-2">Solution Development</span></p>
+                                    <p v-if="stage == 'implementation'"><span class="tag tag-3">Implementation</span></p>
+                                    <p v-if="stage == 'evaluation'"><span class="tag tag-4">Evaluation</span></p>
+                                   
+                                </div>
+                            </div>
+                            <div class="tag-row">
+                                <span id="location-icon" class="material-icons"> location_on</span>
+                                <div class="tag-col"  v-if="project.location">
+                                    <p><span class="tag region-tag">{{project.location}}</span></p>
+                                </div>
+                            </div>
+                            <div class="tag-row owner">
+                                <p>Owner: <span v-html="project.owner"></span></p>
+                              
+                            </div>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <div class="logo-side">
+                <img src="case/images/govlab-temp-logo_white.png">
+                <p>The Governance Lab's mission is to improve people's lives by changing the way we govern. Our goal at
+                    The GovLab is to strengthen the ability of institutions — including but not limited to governments —
+                    and people to work more openly, collaboratively, effectively, and legitimately to make better
+                    decisions and solve public problems. We believe that increased availability and use of data, new
+                    ways to leverage the capacity, intelligence, and expertise of people in the problem-solving process,
+                    combined with new advances in technology and science, can transform governance. We approach each
+                    challenge and opportunity in an interdisciplinary, collaborative way, irrespective of the problem,
+                    sector, geography, and level of government. For more information, visit thegovlab.org.</p>
+            </div>
+
+        </footer>
+    </div>
+</body>
+
+<script src='https://unpkg.com/vue@2.0.3/dist/vue.js'></script>
+<script src="https://unpkg.com/vue-meta/dist/vue-meta.min.js"></script>
+<script src="js/scripts.js"></script>
+
+</html>

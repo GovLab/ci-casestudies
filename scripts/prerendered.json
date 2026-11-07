@@ -1,0 +1,214 @@
+{
+  "note": "Written by scripts/prerender.mjs. inPlace pages are rendered from scripts/templates/<file>.tpl.",
+  "pages": [
+    {
+      "path": "/",
+      "file": "index.html",
+      "inPlace": true,
+      "prerendered": false
+    },
+    {
+      "path": "/literature-review/",
+      "file": "literature-review/index.html",
+      "inPlace": true,
+      "prerendered": true,
+      "markdown": "literature-review.md"
+    },
+    {
+      "path": "/report",
+      "file": "report.html",
+      "inPlace": true,
+      "prerendered": true,
+      "markdown": "report.md"
+    },
+    {
+      "path": "/case/we-europeans",
+      "file": "case/we-europeans.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/we-europeans.md"
+    },
+    {
+      "path": "/case/abre",
+      "file": "case/abre.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/abre.md"
+    },
+    {
+      "path": "/case/propeller-health",
+      "file": "case/propeller-health.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/propeller-health.md"
+    },
+    {
+      "path": "/case/civic-bridge",
+      "file": "case/civic-bridge.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/civic-bridge.md"
+    },
+    {
+      "path": "/case/decidim-helsinki",
+      "file": "case/decidim-helsinki.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/decidim-helsinki.md"
+    },
+    {
+      "path": "/case/flint-property-portal",
+      "file": "case/flint-property-portal.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/flint-property-portal.md"
+    },
+    {
+      "path": "/case/ipaidabribe",
+      "file": "case/ipaidabribe.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/ipaidabribe.md"
+    },
+    {
+      "path": "/case/sustainable-neighborhoods-program",
+      "file": "case/sustainable-neighborhoods-program.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/sustainable-neighborhoods-program.md"
+    },
+    {
+      "path": "/case/listening-to-africa",
+      "file": "case/listening-to-africa.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/listening-to-africa.md"
+    },
+    {
+      "path": "/case/new-start-career-network",
+      "file": "case/new-start-career-network.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/new-start-career-network.md"
+    },
+    {
+      "path": "/case/the-bristol-approach",
+      "file": "case/the-bristol-approach.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/the-bristol-approach.md"
+    },
+    {
+      "path": "/case/governador-pergunta-governor-asks",
+      "file": "case/governador-pergunta-governor-asks.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/governador-pergunta-governor-asks.md"
+    },
+    {
+      "path": "/case/smarter-crowdsourcing-for-zika",
+      "file": "case/smarter-crowdsourcing-for-zika.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/smarter-crowdsourcing-for-zika.md"
+    },
+    {
+      "path": "/case/carbon-neutral-helsinki-2035",
+      "file": "case/carbon-neutral-helsinki-2035.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/carbon-neutral-helsinki-2035.md"
+    },
+    {
+      "path": "/case/cidade-democratica",
+      "file": "case/cidade-democratica.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/cidade-democratica.md"
+    },
+    {
+      "path": "/case/syria-tracker",
+      "file": "case/syria-tracker.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/syria-tracker.md"
+    },
+    {
+      "path": "/case/congressional-science-policy-initiative",
+      "file": "case/congressional-science-policy-initiative.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/congressional-science-policy-initiative.md"
+    },
+    {
+      "path": "/case/challengegov",
+      "file": "case/challengegov.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/challengegov.md"
+    },
+    {
+      "path": "/case/finnish-citizens-initiative",
+      "file": "case/finnish-citizens-initiative.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/finnish-citizens-initiative.md"
+    },
+    {
+      "path": "/case/safecast",
+      "file": "case/safecast.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/safecast.md"
+    },
+    {
+      "path": "/case/synathina",
+      "file": "case/synathina.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/synathina.md"
+    },
+    {
+      "path": "/case/ushahidi",
+      "file": "case/ushahidi.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/ushahidi.md"
+    },
+    {
+      "path": "/case/vtaiwan",
+      "file": "case/vtaiwan.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/vtaiwan.md"
+    },
+    {
+      "path": "/case/belgian-sortition-models",
+      "file": "case/belgian-sortition-models.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/belgian-sortition-models.md"
+    },
+    {
+      "path": "/case/creamos",
+      "file": "case/creamos.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/creamos.md"
+    },
+    {
+      "path": "/case/forum-jove-bcn-barcelonas-youth-forum",
+      "file": "case/forum-jove-bcn-barcelonas-youth-forum.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/forum-jove-bcn-barcelonas-youth-forum.md"
+    },
+    {
+      "path": "/case/nuortenbudjetti-helsinkis-youth-budget",
+      "file": "case/nuortenbudjetti-helsinkis-youth-budget.html",
+      "inPlace": false,
+      "prerendered": true,
+      "markdown": "case/nuortenbudjetti-helsinkis-youth-budget.md"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+# Written by scripts/prerender.mjs: content types for the Markdown copies of the pages
+# and llms.txt, and a canonical Link header pointing each copy at its HTML page.
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+/llms-full.txt
+  Content-Type: text/markdown; charset=utf-8
+/literature-review.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/literature-review/>; rel="canonical"
+/report.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/report>; rel="canonical"
+/case/we-europeans.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/we-europeans>; rel="canonical"
+/case/abre.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/abre>; rel="canonical"
+/case/propeller-health.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/propeller-health>; rel="canonical"
+/case/civic-bridge.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/civic-bridge>; rel="canonical"
+/case/decidim-helsinki.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/decidim-helsinki>; rel="canonical"
+/case/flint-property-portal.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/flint-property-portal>; rel="canonical"
+/case/ipaidabribe.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/ipaidabribe>; rel="canonical"
+/case/sustainable-neighborhoods-program.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/sustainable-neighborhoods-program>; rel="canonical"
+/case/listening-to-africa.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/listening-to-africa>; rel="canonical"
+/case/new-start-career-network.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/new-start-career-network>; rel="canonical"
+/case/the-bristol-approach.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/the-bristol-approach>; rel="canonical"
+/case/governador-pergunta-governor-asks.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/governador-pergunta-governor-asks>; rel="canonical"
+/case/smarter-crowdsourcing-for-zika.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/smarter-crowdsourcing-for-zika>; rel="canonical"
+/case/carbon-neutral-helsinki-2035.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/carbon-neutral-helsinki-2035>; rel="canonical"
+/case/cidade-democratica.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/cidade-democratica>; rel="canonical"
+/case/syria-tracker.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/syria-tracker>; rel="canonical"
+/case/congressional-science-policy-initiative.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/congressional-science-policy-initiative>; rel="canonical"
+/case/challengegov.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/challengegov>; rel="canonical"
+/case/finnish-citizens-initiative.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/finnish-citizens-initiative>; rel="canonical"
+/case/safecast.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/safecast>; rel="canonical"
+/case/synathina.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/synathina>; rel="canonical"
+/case/ushahidi.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/ushahidi>; rel="canonical"
+/case/vtaiwan.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/vtaiwan>; rel="canonical"
+/case/belgian-sortition-models.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/belgian-sortition-models>; rel="canonical"
+/case/creamos.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/creamos>; rel="canonical"
+/case/forum-jove-bcn-barcelonas-youth-forum.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/forum-jove-bcn-barcelonas-youth-forum>; rel="canonical"
+/case/nuortenbudjetti-helsinkis-youth-budget.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://collective-intelligence.thegovlab.org/case/nuortenbudjetti-helsinkis-youth-budget>; rel="canonical"

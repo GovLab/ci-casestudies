@@ -19,18 +19,37 @@ main();
 ///// TEAM  API REQUEST ` `
 ////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////
+///// PRE-RENDERED PAGES (see scripts/prerender.mjs)
+////////////////////////////////////////////////////////////
+// A pre-rendered page carries its Vue template and the CMS data inline:
+// render from those instead of calling the API.
+var PRERENDER = (function () {
+  var tpl = document.getElementById('home-page-tpl');
+  var json = document.getElementById('prerender-data');
+  if (!tpl || !json) return null;
+  try {
+    return { template: '#home-page-tpl', data: JSON.parse(json.textContent).data };
+  } catch (e) {
+    return null;
+  }
+})();
+
 Vue.use(VueMeta);
 
 new Vue({
 
   el: '#home-page',
+  template: PRERENDER ? PRERENDER.template : undefined,
 
   data() {
+    // Pre-rendered pages (the report page) carry only the data their template uses.
+    var seed = PRERENDER ? PRERENDER.data : {};
 
     return {
-      indexData: [],
-      filterData: [],
-      reportData: [],
+      indexData: seed.indexData || [],
+      filterData: seed.indexData || [],
+      reportData: seed.reportData || [],
       // js_scope: [
       //   { code: '', name: 'All' },
       //   { code: '0', name: 'Local' },
@@ -83,6 +102,7 @@ new Vue({
 
   created: function created() {
     this.memberslug = window.location.pathname.split('/');
+    if (PRERENDER) return;
     this.fetchIndex();
     this.fetchReport();
   },

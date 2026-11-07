@@ -1,0 +1,11 @@
+{
+  "name": "prerender",
+  "private": true,
+  "description": "Pre-renders the CMS-driven pages to static HTML for crawlers. Run locally: node scripts/prerender.mjs",
+  "type": "module",
+  "devDependencies": {
+    "puppeteer-core": "25.16.0",
+    "turndown": "7.2.4",
+    "turndown-plugin-gfm": "1.0.2"
+  }
+}
