@@ -35,7 +35,7 @@
 //   node scripts/prerender.mjs --serve [port]   serve the site like Netlify does
 
 import { createServer } from 'node:http';
-import { existsSync, statSync } from 'node:fs';
+import { existsSync, readdirSync, statSync } from 'node:fs';
 import { mkdir, readFile, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -95,8 +95,16 @@ const escapeText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
 const scriptJson = (value, indent) => JSON.stringify(value, null, indent).replace(/</g, '\\u003c');
 const words = (text) => String(text).split(/\s+/).filter(Boolean).length;
 
+// Netlify serves files without regard to case, and answers a page path with
+// capitals with a 301 to the lower-case path (e.g. /lectures/AI-future-of-education
+// -> /lectures/ai-future-of-education on aiethicscourse.org). So every address
+// published here is the lower-case path; file names keep their case.
+function sitePath(urlPath) {
+  return encodeURI(urlPath.toLowerCase());
+}
+
 function canonicalUrl(urlPath) {
-  return config.origin + encodeURI(urlPath);
+  return config.origin + sitePath(urlPath);
 }
 
 // "/" -> "index.md", "/literature-review/" -> "literature-review.md", "/case/x" -> "case/x.md"
@@ -125,6 +133,7 @@ async function readManifest() {
 // ---------------------------------------------------------------- Markdown
 
 let markdownBase = config.origin + '/';
+let pagePaths = new Set(); // lower-case paths of the pages being rendered
 const redactions = { emails: 0, phones: 0 };
 const EMAIL = /[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g;
 const PHONE = /(?:\+\d{1,3}[\s.-]?)?(?:\(\d{2,4}\)[\s.-]?|\b\d{3}[\s.-])\d{3}[\s.-]\d{4}\b/g;
@@ -155,7 +164,13 @@ turndown.addRule('links', {
     let url;
     try { url = new URL(href, markdownBase); } catch { return content; }
     // Links within the site point at the clean URLs ("/x", not "/x.html").
-    if (url.origin === new URL(config.origin).origin) url.pathname = url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+    if (url.origin === new URL(config.origin).origin) {
+      url.pathname = url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+      // Links to pre-rendered pages use their published (lower-case) address.
+      let decoded = url.pathname;
+      try { decoded = decodeURIComponent(url.pathname); } catch { /* keep as is */ }
+      if (pagePaths.has(decoded.toLowerCase())) url.pathname = sitePath(decoded);
+    }
     return `[${content}](${url.href})`;
   },
 });
@@ -237,7 +252,7 @@ function markdownPage(page, doc) {
     licence: config.licence,
   };
   const text = `${frontMatter(fields)}\n\n# ${doc.title}\n\n${doc.body.trim()}\n`;
-  return { file, url: config.origin + '/' + encodeURI(file), title: doc.title, summary: fields.summary, text };
+  return { file, url: config.origin + sitePath('/' + file), title: doc.title, summary: fields.summary, text };
 }
 
 // ---------------------------------------------------------------- local server
@@ -264,6 +279,22 @@ function matchRule(rule, p) {
 async function startServer({ port = 0, hide = new Set(), overrides = new Map() } = {}) {
   const rules = await parseRedirects();
   const exists = (rel) => !hide.has(rel) && (overrides.has(rel) || isFile(rel));
+  // Like Netlify: a file is found without regard to case.
+  const find = (rel) => {
+    if (exists(rel)) return rel;
+    let dir = ROOT;
+    const found = [];
+    for (const seg of rel.split('/')) {
+      let names;
+      try { names = readdirSync(dir); } catch { return null; }
+      const hit = names.find((n) => n.toLowerCase() === seg.toLowerCase());
+      if (!hit) return null;
+      found.push(hit);
+      dir = path.join(dir, hit);
+    }
+    const actual = found.join('/');
+    return exists(actual) ? actual : null;
+  };
   const server = createServer(async (req, res) => {
     const url = new URL(req.url, 'http://localhost');
     let p;
@@ -274,11 +305,14 @@ async function startServer({ port = 0, hide = new Set(), overrides = new Map() }
     let target = null;
     let status = 200;
     if (p.endsWith('/')) {
-      if (exists(rel + 'index.html')) target = rel + 'index.html';
-      else if (rel && exists(rel.slice(0, -1) + '.html')) return redirect(p.slice(0, -1));
-    } else if (exists(rel)) target = rel;
-    else if (exists(rel + '.html')) target = rel + '.html';
-    else if (exists(rel + '/index.html')) return redirect(p + '/');
+      if (find(rel + 'index.html')) target = find(rel + 'index.html');
+      else if (rel && find(rel.slice(0, -1) + '.html')) return redirect(p.slice(0, -1).toLowerCase());
+    } else if (find(rel)) target = find(rel);
+    else if (find(rel + '.html')) {
+      // Like Netlify: a page path with capitals gets a 301 to the lower-case path.
+      if (p !== p.toLowerCase()) return redirect(p.toLowerCase());
+      target = find(rel + '.html');
+    } else if (find(rel + '/index.html')) return redirect(p + '/');
     if (!target) {
       for (const rule of rules) {
         const to = matchRule(rule, p);
@@ -486,7 +520,9 @@ function headersFile(docs) {
     '  Content-Type: text/markdown; charset=utf-8',
   ];
   docs.forEach((d) => {
-    lines.push(`/${encodeURI(d.file)}`, '  Content-Type: text/markdown; charset=utf-8', `  Link: <${d.canonical}>; rel="canonical"`);
+    // Lower-case, the address the copy is published at; Netlify matches header
+    // paths without regard to case (see the note at sitePath()).
+    lines.push(sitePath('/' + d.file), '  Content-Type: text/markdown; charset=utf-8', `  Link: <${d.canonical}>; rel="canonical"`);
   });
   return lines.join('\n') + '\n';
 }
@@ -495,6 +531,7 @@ function headersFile(docs) {
 
 async function render() {
   const pages = await config.pages({ directus, htmlToText, summary, canonicalUrl, md, mdFrom });
+  pagePaths = new Set(pages.map((p) => p.path.toLowerCase()));
   const previous = await readManifest();
   // While rendering, earlier output must not be served: detail URLs fall
   // through to their template, single pages are served from the pristine copy.
