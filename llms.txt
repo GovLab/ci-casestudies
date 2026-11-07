@@ -1,0 +1,35 @@
+# Collective Intelligence Case Studies
+
+> Case studies from around the world on how institutions use and institutionalise collective intelligence: networks of people inside and outside government who help make decisions and solve public problems. Published by The GovLab with Nesta's Centre for Collective Intelligence Design, alongside the report "Using Collective Intelligence to Solve Public Problems" and a literature review. Text licensed CC BY-SA 4.0.
+
+## Pages
+
+- [Collective Intelligence: Literature Review](https://collective-intelligence.thegovlab.org/literature-review.md): This literature review of almost one hundred publications frames The GovLab and Nesta’s Report, “Using Collective Intelligence to Solve Public Problems” within the existing academic literature on collective intelligence. Through this analysis, we seek to explain how public institutions can work…
+- [Using Collective Intelligence To Solve Public Problems](https://collective-intelligence.thegovlab.org/report.md): This report lays out a clear framework with practical advice for how public bodies can use collective intelligence techniques to tackle community challenges exacerbated by the COVID-19 pandemic. Collective intelligence uses new technology to harnesses the ideas and skills of the public. From…
+- [WeEuropeans](https://collective-intelligence.thegovlab.org/case/we-europeans.md): 1.7 million Europeans help draft policies to reboot the European project
+- [Abre](https://collective-intelligence.thegovlab.org/case/abre.md): Nonprofit helps city build capacity for collective intelligence projects
+- [AIR Louisville / Propeller Health](https://collective-intelligence.thegovlab.org/case/propeller-health.md): Using GPS-enabled inhalers, the Louisville Metro Government tracked asthma/COPD incidents and decreased rescue inhaler use by 82% among equipped participants
+- [Civic Bridge](https://collective-intelligence.thegovlab.org/case/civic-bridge.md): By working with private sector technologists and designers, the City of San Francisco taps pro bono talent worth millions
+- [Decidim Helsinki](https://collective-intelligence.thegovlab.org/case/decidim-helsinki.md): Helsinki uses participatory budgeting to enable public engagement in urban policymaking
+- [Flint Neighborhood Inventory / Flint Property Portal](https://collective-intelligence.thegovlab.org/case/flint-property-portal.md): Data crowdsourced from residents helps Flint secure $US67.5 million to restore blighted neighborhoods
+- [iPaidABribe](https://collective-intelligence.thegovlab.org/case/ipaidabribe.md): An Indian nonprofit created a platform to enable public reporting of bribery and now crowdsources data from more than 1,000 cities
+- [Sustainable Neighborhoods Program](https://collective-intelligence.thegovlab.org/case/sustainable-neighborhoods-program.md): Lakewood tapped residents’ passion for improving their neighborhoods to create a community-led sustainability ‘workforce’
+- [Listening to Africa](https://collective-intelligence.thegovlab.org/case/listening-to-africa.md): To track unfolding crises the World Bank Group used mobile phone surveys to communicate directly with the people experiencing them
+- [New Start Career Network](https://collective-intelligence.thegovlab.org/case/new-start-career-network.md): Network of volunteer career coaches helps long-term unemployed in New Jersey to find a new job
+- [The Bristol Approach](https://collective-intelligence.thegovlab.org/case/the-bristol-approach.md): Bristol citizens work with nonprofit arts organisation to collect and analyse air quality data
+- [Governador Pergunta (Governor Asks)](https://collective-intelligence.thegovlab.org/case/governador-pergunta-governor-asks.md): Governor Asks uses online and face-to-face outreach to engage almost a quarter million participants in one month
+- [Smarter Crowdsourcing for Zika](https://collective-intelligence.thegovlab.org/case/smarter-crowdsourcing-for-zika.md): To combat the Zika virus the Governance Lab collaborated with national and local government partners to crowdsource solutions from global experts
+- [Carbon Neutral Helsinki 2035](https://collective-intelligence.thegovlab.org/case/carbon-neutral-helsinki-2035.md): Collaborative climate action in Helsinki
+- [Cidade Democrática](https://collective-intelligence.thegovlab.org/case/cidade-democratica.md): Cidade Democrática develops a tool to crowdsource solutions to corruption and other public problems in Brazil
+- [Syria Tracker](https://collective-intelligence.thegovlab.org/case/syria-tracker.md): Syria Tracker uses secure and accessible reporting mechanisms to document human rights abuses
+- [Congressional Science Policy Initiative](https://collective-intelligence.thegovlab.org/case/congressional-science-policy-initiative.md): More than 600 volunteer scientists across the USA are informing the work of Congress
+- [Challenge.gov](https://collective-intelligence.thegovlab.org/case/challengegov.md): More than 100 Federal agencies crowdsource solutions through Challenge.gov
+- [Finnish Citizens’ Initiative](https://collective-intelligence.thegovlab.org/case/finnish-citizens-initiative.md): Crowdsourcing legislative proposals in Finland
+- [Safecast](https://collective-intelligence.thegovlab.org/case/safecast.md): Using citizen science to map radiation and air quality at a global scale
+- [synAthina](https://collective-intelligence.thegovlab.org/case/synathina.md): Athens’ collective intelligence ecosystem
+- [Ushahidi](https://collective-intelligence.thegovlab.org/case/ushahidi.md): Crowdmapping to inform responses in chaotic or disaster situations
+- [vTaiwan](https://collective-intelligence.thegovlab.org/case/vtaiwan.md): Reaching consensus using collective intelligence
+- [Belgian Sortition Models](https://collective-intelligence.thegovlab.org/case/belgian-sortition-models.md): Institutionalizing deliberative democracy
+- [Creamos](https://collective-intelligence.thegovlab.org/case/creamos.md): Co-creating youth-led social innovation projects in Chile
+- [Forum Jove BCN: Barcelona’s Youth Forum](https://collective-intelligence.thegovlab.org/case/forum-jove-bcn-barcelonas-youth-forum.md): Citizens’ assembly empowers Barcelona youth to develop recommendations for the city council
+- [Nuortenbudjetti: Helsinki’s Youth Budget](https://collective-intelligence.thegovlab.org/case/nuortenbudjetti-helsinkis-youth-budget.md): Young people in Helsinki create and vote on youth-led projects
