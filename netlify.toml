@@ -1,0 +1,12 @@
+# Netlify settings for this static site (there is no build step: the
+# pre-rendered pages are committed; see scripts/prerender.mjs).
+#
+# Node: the site had no Node version set, so builds used Netlify's old
+# default (12.18.0). The team's Netlify extensions (prerender,
+# async-workloads) are installed at build time and no longer install on
+# Node 12, which failed every deploy since November 2026.
+[build]
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "22"
