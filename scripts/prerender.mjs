@@ -526,6 +526,8 @@ async function render() {
         state = rendered.state;
         // Optional: drop data the template does not use (--verify checks the result).
         if (page.pruneSeed) rendered.seed = page.pruneSeed(rendered.seed);
+        // Optional: adjust the static markup, e.g. hide what a script hides on load.
+        if (page.postRender) rendered.html = page.postRender(rendered.html);
       }
       let markdown = null;
       if (page.markdown) {
@@ -568,6 +570,7 @@ async function render() {
     note: 'Written by scripts/prerender.mjs. inPlace pages are rendered from scripts/templates/<file>.tpl.',
     pages: pages.map((p) => ({
       path: p.path, file: p.file, inPlace: Boolean(p.inPlace), prerendered: Boolean(p.seed), markdown: p.markdownFile || undefined,
+      markupNotCompared: p.markupNotCompared || undefined,
     })),
   };
   await writeFile(MANIFEST, JSON.stringify(manifest, null, 2) + '\n');
@@ -628,6 +631,13 @@ async function verify() {
         await tab.close();
         return { dom, apiCalls, errors, words: count };
       };
+      if (page.markupNotCompared) {
+        const live = await read(true);
+        if (live.apiCalls) failures += 1;
+        console.log(`${live.apiCalls ? 'FAIL ' : 'ok   '} ${page.path}  markup not compared (${page.markupNotCompared}); ` +
+          `${live.apiCalls} CMS data requests; words: ${live.words} in Chrome, ${mdWords} in Markdown; JSON-LD ${types.join(', ')}`);
+        continue;
+      }
       const plain = await read(false);
       const live = await read(true);
       const identical = plain.dom.raw.length > 0 && plain.dom.raw === live.dom.raw;
